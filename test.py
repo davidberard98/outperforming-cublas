@@ -3,8 +3,7 @@ import triton
 
 torch.ops.load_library("gemm.so")
 
-# m, n, k = 6 * 11 * 128, 6 * 12 * 128, 640
-m, n, k = [8192] * 3
+m, n, k = 6 * 11 * 128, 6 * 12 * 128, 64*8
 
 x, y = torch.randn(m, k, device="cuda", dtype=torch.bfloat16), torch.randn(k, n, device="cuda", dtype=torch.bfloat16)
 
